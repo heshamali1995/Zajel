@@ -1,0 +1,6 @@
+@mixin fontFace($font, $url) {
+    @font-face {
+        font-family: $font;
+        src: url($url);
+    }
+}

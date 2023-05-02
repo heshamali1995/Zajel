@@ -1,0 +1,95 @@
+@use "../../sass/base/function.scss" as *;
+@use "../../sass/base/mixin.scss" as *;
+
+@include fontFace("Tajawal", "../../assets/fonts/Tajawal/Tajawal-Regular.ttf");
+
+.form-section {
+  font-family: "Tajawal", sans-serif;
+  // Logo Section
+  .logo {
+    padding: 27px 0px 34px 0px;
+  }
+  // Form Section
+  .form {
+    background-image: url("../../assets/images/form/background.png");
+    background-size: 100% 100%;
+    padding: 99px 0px 282px 0px;
+    .form-container {
+      border-radius: 5px;
+      width: 478px;
+      h2 {
+        font-size: pxToRem(30);
+        line-height: 36px;
+      }
+      h3 {
+        font-size: pxToRem(24);
+        line-height: 29px;
+        color: #818181;
+      }
+      form {
+        label {
+          font-size: pxToRem(14);
+          line-height: 17px;
+        }
+        .email,
+        .password {
+          background-color: #f6f6f6;
+          width: 100%;
+          input {
+            background-color: #f6f6f6;
+            caret-color: #29384e;
+          }
+          .pass-input.show {
+            background-image: url("../../assets/images/form/ellipse.png");
+            background-repeat: no-repeat;
+            background-position: right;
+          }
+        }
+        .email.error,
+        .password.error {
+          outline: 1px solid #cc0033;
+        }
+        .checkbox {
+          input {
+            accent-color: #6b6b6b;
+            width: 18px;
+            height: 18px;
+          }
+        }
+        .main-btn {
+          width: 100%;
+          border-radius: 5px;
+          font-weight: 500;
+          font-size: pxToRem(20);
+          padding: 15px 10px;
+          line-height: 24px;
+          &:active {
+            transform: scale(0.98);
+          }
+        }
+        .validation {
+          color: #cc0033;
+        }
+      }
+    }
+  }
+}
+
+/*-------- Start Media Query -------*/
+
+// XSmall Screens
+
+@media all and (max-width: 639px) {
+  .form {
+    .form {
+      .form-container {
+        width: 85%;
+        h3 {
+          font-size: pxToRem(22);
+        }
+      }
+    }
+  }
+}
+
+/*-------- End Media Query -------*/

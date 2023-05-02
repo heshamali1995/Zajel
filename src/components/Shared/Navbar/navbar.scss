@@ -1,0 +1,58 @@
+@use "../../../sass/base/mixin.scss" as *;
+@use "../../../sass/base/function.scss" as *;
+
+@include fontFace("Tajawal", "../../assets/fonts/Tajawal/Tajawal-Regular.ttf");
+@include fontFace("Roboto", "../../assets/fonts/Roboto/Roboto-Regular.ttf");
+
+nav {
+  width: 93.7%;
+  border-radius: 5px;
+  // Nav Text
+  .nav-text {
+    // User Image
+    .user-image {
+      width: 35px;
+      height: 35px;
+      p {
+        font-family: "Roboto", sans-serif;
+      }
+    }
+    .admin {
+      p {
+        font-size: pxToRem(12);
+      }
+      p:first-of-type {
+        font-family: "Roboto";
+      }
+      p:last-of-type {
+        font-family: "Tajawal";
+      }
+    }
+  }
+  // Nav Search
+  .nav-search {
+    width: 41.2%;
+    font-family: "Tajawal";
+    input {
+      color: #2e2e2e;
+      caret-color: #2e2e2e;
+    }
+  }
+}
+
+/*-------- Start Media Query -------*/
+
+// XSmall and Small Screens
+
+@media all and (max-width: 767px) {
+  nav {
+    .nav-text {
+      width: 100%;
+    }
+    .nav-search {
+      width: 100%;
+    }
+  }
+}
+
+/*-------- End Media Query -------*/

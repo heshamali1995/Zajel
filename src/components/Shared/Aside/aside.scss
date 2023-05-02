@@ -1,0 +1,56 @@
+@use "../../../sass/base/mixin.scss" as *;
+@use "../../../sass/base/function.scss" as *;
+
+@include fontFace("Tajawal", "../../assets/fonts/Tajawal/Tajawal-Regular.ttf");
+
+aside {
+  padding: 36px 22px;
+  font-family: "Tajawal", sans-serif;
+  .apply {
+    color: #a6a6a6;
+    line-height: 19px;
+  }
+  .aside-text {
+    padding: 8px 16px 8px 96px;
+    box-shadow: 0px 2px 8px rgba(89, 51, 107, 0.1);
+    border-radius: 5px;
+    div {
+      width: 24px;
+      height: 24px;
+    }
+    p {
+      font-size: pxToRem(18);
+    }
+  }
+}
+
+/*-------- Start Media Query -------*/
+
+// XSmall Screens
+
+@media all and (max-width: 639px) {
+  aside {
+    padding: 36px 10px;
+    .apply {
+      font-size: pxToRem(14);
+    }
+    .aside-text {
+      padding: 4px 14px 4px 14px;
+      p {
+        font-size: pxToRem(12);
+      }
+    }
+  }
+}
+
+// Small Screens
+
+@media all and (min-width: 640px) and (max-width: 767px) {
+  aside {
+    .aside-text {
+      padding-left: 16px;
+    }
+  }
+}
+
+/*-------- End Media Query -------*/
