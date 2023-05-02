@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./details.scss";
 // Components
 import Aside from "../../components/Shared/Aside/Aside";
@@ -16,6 +17,7 @@ import BackID from "../../assets/images/details/back-id.png";
 
 const UserDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.details);
   useEffect(() => {
@@ -73,7 +75,12 @@ const UserDetails = () => {
             {/* User Path */}
             <div className="user-path hidden sm:flex items-center mb-6">
               <p className="relative text-secondary ml-8">عرض المتقدم</p>
-              <p className="text-secondary ml-4 text-sm">الصفحة الرئيسية</p>
+              <p
+                className="text-secondary ml-4 text-sm cursor-pointer"
+                onClick={() => navigate("/")}
+              >
+                الصفحة الرئيسية
+              </p>
               <div className="ml-4">
                 <img src={LeftArrow} alt="arrow" />
               </div>
