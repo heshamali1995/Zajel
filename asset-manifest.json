@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Zajel/static/css/main.29ca775d.css",
+    "main.js": "/Zajel/static/js/main.ae5c9eef.js",
+    "static/js/787.e70bc985.chunk.js": "/Zajel/static/js/787.e70bc985.chunk.js",
+    "static/media/not-found.gif": "/Zajel/static/media/not-found.83eb5633bace7390ff79.gif",
+    "static/media/background.png": "/Zajel/static/media/background.7daa11fd8f03df4d0058.png",
+    "static/media/Roboto-Regular.ttf": "/Zajel/static/media/Roboto-Regular.160d7a6ac26376e5e977.ttf",
+    "static/media/OpenSans-Regular.ttf": "/Zajel/static/media/OpenSans-Regular.37c522d97be8b2c0ab47.ttf",
+    "static/media/back-id.png": "/Zajel/static/media/back-id.681fe018141ff64fecbf.png",
+    "static/media/front-id.png": "/Zajel/static/media/front-id.f1d7ffcd3842fd2d6fac.png",
+    "static/media/Tajawal-Regular.ttf": "/Zajel/static/media/Tajawal-Regular.56726bb0358fd1425999.ttf",
+    "static/media/user.png": "/Zajel/static/media/user.b579d5dedf4c85b69f93.png",
+    "index.html": "/Zajel/index.html",
+    "main.29ca775d.css.map": "/Zajel/static/css/main.29ca775d.css.map",
+    "main.ae5c9eef.js.map": "/Zajel/static/js/main.ae5c9eef.js.map",
+    "787.e70bc985.chunk.js.map": "/Zajel/static/js/787.e70bc985.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.29ca775d.css",
+    "static/js/main.ae5c9eef.js"
+  ]
+}
