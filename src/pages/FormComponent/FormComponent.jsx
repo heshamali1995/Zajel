@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./form.scss";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // Components
 import { getAccessToken } from "../../services/auth.services";
 import { AiOutlineEye } from "react-icons/ai";
@@ -15,6 +17,20 @@ const FormComponent = () => {
   const [togglePass, setTogglePass] = useState("password");
   const [dots, setDots] = useState(true);
   const navigate = useNavigate();
+  // Toastify Function
+  const notify = () => {
+    toast.error("Email has no access!", {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 3000,
+      closeOnClick: true,
+      hideProgressBar: false,
+      pauseOnFocusLoss: true,
+      pauseOnHover: true,
+      theme: "light",
+      rtl: false,
+    });
+  };
+
   const {
     register,
     formState: { errors },
@@ -37,11 +53,15 @@ const FormComponent = () => {
   // On Submit Function
   const onSubmit = (data) => {
     const { email, password } = data;
-    getAccessToken(email, password).then((resp) => {
-      if (resp) {
-        navigate("/", { replace: true });
-      }
-    });
+    getAccessToken(email, password)
+      .then((resp) => {
+        if (resp) {
+          navigate("/", { replace: true });
+        }
+      })
+      .catch(() => {
+        notify();
+      });
   };
   return (
     <section className="form-section flex flex-col items-center bg-main-bg">
@@ -154,6 +174,8 @@ const FormComponent = () => {
           </form>
         </div>
       </div>
+      {/* Toast Error Text */}
+      <ToastContainer />
     </section>
   );
 };

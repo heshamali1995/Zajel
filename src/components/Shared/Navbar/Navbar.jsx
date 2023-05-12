@@ -21,7 +21,7 @@ const Navbar = ({ filter, setFilter, id }) => {
         {/* User Image */}
         <div className="user-image rounded-full bg-main-bg relative ml-3">
           <p className="center text-button font-medium text-sm">
-            {response?.user?.name?.slice(0, 1)}
+            {response?.user?.name?.trimStart().slice(0, 1)}
           </p>
         </div>
         {/* Admin */}

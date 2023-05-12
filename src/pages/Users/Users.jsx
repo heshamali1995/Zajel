@@ -49,6 +49,7 @@ const Users = () => {
     setGlobalFilter,
   } = useTable({ columns, data }, useGlobalFilter, usePagination);
   const { pageIndex, pageSize, globalFilter } = state;
+  console.log(drivers);
   return (
     <section className="flex gap-3 sm:gap-10 bg-main-bg min-h-screen">
       {/* Aside Section */}

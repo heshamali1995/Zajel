@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+/* import { FaPlay } from "react-icons/fa";
+import Wavesurfer from "react-wavesurfer.js"; */
 import "./details.scss";
 // Components
 import Aside from "../../components/Shared/Aside/Aside";
@@ -10,16 +12,14 @@ import { fetchDetails } from "../../redux/singleDriver/singleDriverSlice";
 import Spinner from "../../components/Spinner/Spinner";
 // Images
 import LeftArrow from "../../assets/images/details/left-arrow.png";
-import UserImage from "../../assets/images/details/user.png";
-import Voice from "../../assets/images/details/voice.png";
-import FrontID from "../../assets/images/details/front-id.png";
-import BackID from "../../assets/images/details/back-id.png";
 
 const UserDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.details);
+
+  // Fetch The Driver Details
   useEffect(() => {
     dispatch(fetchDetails(id));
   }, []);
@@ -64,7 +64,7 @@ const UserDetails = () => {
     },
   ];
   return (
-    <section className="flex gap-3 sm:gap-10 bg-main-bg min-h-screen">
+    <section className="flex gap-2 sm:gap-10 bg-main-bg min-h-screen">
       <Aside />
       <div className="flex-grow pt-5">
         <Navbar id={id} />
@@ -89,12 +89,32 @@ const UserDetails = () => {
             {/* User Info */}
             <div className="user-info bg-white">
               {/* Image And Voice */}
-              <div className="user-image flex flex-col sm:flex-row items-center gap-10 mb-8">
-                <div className="image">
-                  <img src={UserImage} alt="user" />
+              <div className="user-image flex flex-col sm:flex-row items-center gap-10 mb-8 flex-wrap">
+                <div className="image rounded-lg">
+                  <img
+                    src={state?.data?.data?.imageUrl}
+                    alt="user"
+                    className="w-full h-full object-fill rounded-lg"
+                  />
                 </div>
-                <div className="voice">
-                  <img src={Voice} alt="voice-note" />
+                <div className="voice px-2 sm:px-6 py-2 bg-button rounded-md flex items-center gap-2 justify-center flex-wrap">
+                  <div className="voice-image">
+                    <img
+                      src={state?.data?.data?.imageUrl}
+                      alt="User"
+                      className="rounded-full w-full h-full"
+                    />
+                  </div>
+                  <div className="voicenote flex items-center gap-2 grow sm:grow-0">
+                    <audio
+                      src={state?.data?.data?.voiceRecord}
+                      controls
+                      className="grow sm:grow-0"
+                    />
+                    {/*                     <div className="button bg-red-500 flex justify-center items-center">
+                      <FaPlay className="cursor-pointer rotate-180" />
+                    </div> */}
+                  </div>
                 </div>
               </div>
               {/* Form */}
@@ -117,12 +137,20 @@ const UserDetails = () => {
                   );
                 })}
               </div>
-              <div className="flex gap-8 flex-col sm:flex-row">
+              <div className="national-id flex gap-8 flex-col sm:flex-row">
                 <div>
-                  <img src={FrontID} alt="ID" />
+                  <img
+                    src={state?.data?.data?.nationalIDImage}
+                    alt="ID"
+                    className="w-full h-full object-fill"
+                  />
                 </div>
                 <div>
-                  <img src={BackID} alt="ID" />
+                  <img
+                    src={state?.data?.data?.nationalIDImage}
+                    alt="ID"
+                    className="w-full h-full object-fill"
+                  />
                 </div>
               </div>
             </div>
