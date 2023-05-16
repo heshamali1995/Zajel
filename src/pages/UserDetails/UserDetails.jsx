@@ -2,8 +2,6 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-/* import { FaPlay } from "react-icons/fa";
-import Wavesurfer from "react-wavesurfer.js"; */
 import "./details.scss";
 // Components
 import Aside from "../../components/Shared/Aside/Aside";
@@ -27,11 +25,16 @@ const UserDetails = () => {
   // Date Formatting Handler
   const handleDate = () => {
     const date = new Date(state.data?.data?.dateOfBirth);
-    const fullYear = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const days = date.getDate();
-    const dateFormat = `${fullYear} / ${month} / ${days}`;
-    return dateFormat;
+    if (date.toLocaleDateString() !== "Invalid Date") {
+      const fullYear = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const days = date.getDate();
+      const dateFormat = `${days} / ${month} / ${fullYear}`;
+      return dateFormat;
+    } else {
+      const arabicDate = state?.data?.data?.dateOfBirth;
+      return arabicDate?.replace(/-/g, " / ");
+    }
   };
 
   // Driver Information
@@ -60,7 +63,7 @@ const UserDetails = () => {
     {
       id: 7,
       name: "خبرة المندوب",
-      text: "أعمل كمندوب شحن منذ خمس سنوات، وأقوم بتوصيل الطرود والبضائع إلى العملاء في مختلف المناطق. أحب عملي لأنه يتيح لي التعرف على أشخاص جدد وزيارة أماكن مختلفة. أواجه في عملي بعض التحديات، مثل الزحام المروري والتأخير في الشحن والشكاوى من العملاء، لكني أحاول دائماً التعامل معها بمهنية وصبر. أعتقد أن مندوب الشحن يجب أن يكون مسؤولاً وملتزماً ومتعاوناً مع الزملاء والعملاء. أسعى لتطوير مهاراتي وخبرتي في هذا المجال، وأطمح للحصول على فرص أفضل في المستقبل.",
+      text: state.data?.data?.experience,
     },
   ];
   return (
@@ -111,9 +114,6 @@ const UserDetails = () => {
                       controls
                       className="grow sm:grow-0"
                     />
-                    {/*                     <div className="button bg-red-500 flex justify-center items-center">
-                      <FaPlay className="cursor-pointer rotate-180" />
-                    </div> */}
                   </div>
                 </div>
               </div>
@@ -138,13 +138,6 @@ const UserDetails = () => {
                 })}
               </div>
               <div className="national-id flex gap-8 flex-col sm:flex-row">
-                <div>
-                  <img
-                    src={state?.data?.data?.nationalIDImage}
-                    alt="ID"
-                    className="w-full h-full object-fill"
-                  />
-                </div>
                 <div>
                   <img
                     src={state?.data?.data?.nationalIDImage}
