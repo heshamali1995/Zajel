@@ -1,6 +1,11 @@
 import { useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useTable, usePagination, useGlobalFilter } from "react-table";
+import {
+  useTable,
+  usePagination,
+  useGlobalFilter,
+  useSortBy,
+} from "react-table";
 import Select from "react-select";
 import "./users.scss";
 // Components
@@ -47,9 +52,8 @@ const Users = () => {
     previousPage,
     canPreviousPage,
     setGlobalFilter,
-  } = useTable({ columns, data }, useGlobalFilter, usePagination);
+  } = useTable({ columns, data }, useGlobalFilter, useSortBy, usePagination);
   const { pageIndex, pageSize, globalFilter } = state;
-  console.log(drivers);
   return (
     <section className="flex gap-3 sm:gap-10 bg-main-bg min-h-screen">
       {/* Aside Section */}

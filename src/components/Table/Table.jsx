@@ -18,10 +18,15 @@ const Table = ({
                 {header.headers.map((col) => {
                   return (
                     <th
-                      {...col.getHeaderProps()}
+                      {...col.getHeaderProps(col.getSortByToggleProps())}
                       className="py-6 px-2 whitespace-nowrap"
                     >
-                      {col.render("Header")}
+                      <div className="flex gap-2">
+                        {col.render("Header")}
+                        <span>
+                          {col.isSorted ? (col.isSortedDesc ? " ▼" : " ▲") : ""}
+                        </span>
+                      </div>
                     </th>
                   );
                 })}
@@ -42,7 +47,7 @@ const Table = ({
                   return (
                     <td
                       {...cell.getCellProps()}
-                      className="px-2 py-8 text-right"
+                      className="px-2 py-8 text-right whitespace-nowrap"
                       dir="ltr"
                     >
                       {cell.render("Cell")}

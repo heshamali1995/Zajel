@@ -26,7 +26,7 @@ const driverSlice = createSlice({
     });
     builder.addCase(fetchDrivers.fulfilled, (state, action) => {
       state.loading = false;
-      state.drivers = action.payload.data.drivers;
+      state.drivers = action.payload.data.drivers.reverse();
       state.count = action.payload.data.count;
     });
     builder.addCase(fetchDrivers.rejected, (state, action) => {
