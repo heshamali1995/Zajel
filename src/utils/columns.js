@@ -1,3 +1,10 @@
+import { TfiCommentAlt } from "react-icons/tfi";
+import { AiFillDelete } from "react-icons/ai";
+import { GrStatusInfo } from "react-icons/gr";
+// Components
+import SelectStatus from "../components/SelectStatus/SelectStatus";
+import Textarea from "../components/Textarea/Textarea";
+import SubmitButton from "../components/SubmitButton/SubmitButton";
 // Images
 import BurgerMenu from "../assets/images/users/fi_list.png";
 import Phone from "../assets/images/users/phone.png";
@@ -84,5 +91,77 @@ export const COLUMNS = [
       const newDate = `${days} / ${month} / ${fullYear}`;
       return newDate;
     },
+  },
+  {
+    Header: () => {
+      return (
+        <div className="flex items-center">
+          <GrStatusInfo className="ml-2" />
+          <p>الحالة</p>
+        </div>
+      );
+    },
+    id: "specificStatus",
+    accessor: "status",
+    show: false,
+  },
+  {
+    Header: () => {
+      return (
+        <>
+          <div className="flex items-center">
+            <TfiCommentAlt className="ml-2" />
+            <p>ملاحظات</p>
+          </div>
+        </>
+      );
+    },
+    id: "specificNote",
+    accessor: "notes",
+    show: false,
+  },
+  {
+    id: "status",
+    Cell: ({ columnID }) => {
+      return (
+        <>
+          <SelectStatus columnID={columnID} />
+        </>
+      );
+    },
+    disableSortBy: true,
+  },
+  {
+    id: "textarea-cells",
+    Cell: ({ columnID }) => {
+      return (
+        <>
+          <Textarea columnID={columnID} />
+        </>
+      );
+    },
+    disableSortBy: true,
+  },
+  {
+    id: "submit",
+    Cell: ({ columnID }) => {
+      return (
+        <>
+          <SubmitButton columnID={columnID} />
+        </>
+      );
+    },
+    disableSortBy: true,
+  },
+  {
+    id: "remove-driver",
+    accessor: () => {
+      return (
+        <>
+          <AiFillDelete className="bin cursor-pointer" />
+        </>
+      );
+    },
+    disableSortBy: true,
   },
 ];

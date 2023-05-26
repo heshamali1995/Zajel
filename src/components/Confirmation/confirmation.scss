@@ -1,0 +1,28 @@
+@use "../../sass/base/function.scss" as *;
+@use "../../sass/base/mixin.scss" as *;
+
+@include fontFace("Tajawal", "../../assets/fonts/Tajawal/Tajawal-Regular.ttf");
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: "Tajawal", sans-serif;
+  .message {
+    .top-text {
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .mid-text {
+      background-color: #f8d7da;
+    }
+    .bot-text {
+      .deletion {
+        background-color: #dc3545;
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+}

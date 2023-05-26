@@ -15,6 +15,7 @@ import { fetchDrivers } from "../../redux/drivers/driverSlice";
 import Spinner from "../../components/Spinner/Spinner";
 import { COLUMNS } from "../../utils/columns";
 import Table from "../../components/Table/Table";
+import Confirmation from "../../components/Confirmation/Confirmation";
 // Images
 import LeftArrow from "../../assets/images/users/left-arrow.png";
 import RightArrow from "../../assets/images/users/right-arrow.png";
@@ -36,6 +37,7 @@ const Users = () => {
   const count = useSelector((state) => state.data.count);
   const driverState = useSelector((state) => state.data);
   const drivers = useSelector((state) => state.data.drivers);
+  const modal = useSelector((state) => state.modal.show);
   // React Table Props
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => drivers, [drivers]);
@@ -55,7 +57,9 @@ const Users = () => {
   } = useTable({ columns, data }, useGlobalFilter, useSortBy, usePagination);
   const { pageIndex, pageSize, globalFilter } = state;
   return (
-    <section className="flex gap-3 sm:gap-10 bg-main-bg min-h-screen">
+    <section className="flex gap-3 sm:gap-10 bg-main-bg min-h-screen relative">
+      {/* Confirmation Section */}
+      {modal && <Confirmation />}
       {/* Aside Section */}
       <Aside />
       {driverState.loading ? (
@@ -85,7 +89,7 @@ const Users = () => {
                 headerGroups={headerGroups}
               />
               {/* Table Footer Section */}
-              <div className="table-footer flex flex-col sm:flex-row gap-y-4 sm:gap-y-0 justify-between items-center">
+              <div className="table-footer mt-5 flex flex-col sm:flex-row gap-y-4 sm:gap-y-0 justify-between items-center">
                 <div className="show flex gap-2 items-center">
                   <p className="text-sm font-normal text-secondary">عرض</p>
                   <Select

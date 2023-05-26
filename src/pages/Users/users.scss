@@ -81,6 +81,41 @@
             font-weight: 400;
             font-size: pxToRem(14);
             color: #29384e;
+            textarea {
+              min-height: 50px;
+              -moz-border-bottom-colors: none;
+              -moz-border-left-colors: none;
+              -moz-border-right-colors: none;
+              -moz-border-top-colors: none;
+              background: none repeat scroll 0 0 #e2e2e2;
+              border-color: -moz-use-text-color #ffffff #ffffff -moz-use-text-color;
+              border-image: none;
+              border-radius: 6px 6px 6px 6px;
+              border-style: none solid solid none;
+              border-width: medium 1px 1px medium;
+              box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+              padding: 5px 8px;
+              transition: background-color 0.2s ease 0s;
+              direction: rtl;
+              &:focus {
+                background: none repeat scroll 0 0 #f8f8f8;
+                outline-width: 0;
+              }
+            }
+            > svg {
+              width: 18px;
+              height: 18px;
+            }
+            .bin {
+              color: #dc3545;
+            }
+            .selectbox {
+              width: 160px;
+              .css-1nmdiq5-menu {
+                position: absolute;
+                z-index: 1000;
+              }
+            }
           }
           &::after {
             @extend %after;
@@ -144,7 +179,7 @@
 
 // Medium Screens
 
-@media all and (min-width: 768px) and (max-width: 1023px) {
+@media all and (min-width: 768px) {
   .whole-wrapper {
     width: 100px;
     .users-section {
@@ -157,10 +192,12 @@
 
 // Large Screens
 
-@media all and (min-width: 1024px) and (max-width: 1279px) {
-  .users-section {
-    .applicants {
-      width: 30%;
+@media all and (min-width: 1279px) {
+  .whole-wrapper {
+    .users-section {
+      .applicants {
+        width: 30%;
+      }
     }
   }
 }

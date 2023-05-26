@@ -1,18 +1,20 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import "./details.scss";
 // Components
 import Aside from "../../components/Shared/Aside/Aside";
 import Navbar from "../../components/Shared/Navbar/Navbar";
 import { fetchDetails } from "../../redux/singleDriver/singleDriverSlice";
+import { removeStatus } from "../../redux/status/status";
+import { removeText } from "../../redux/textarea/textarea";
 import Spinner from "../../components/Spinner/Spinner";
 // Images
 import LeftArrow from "../../assets/images/details/left-arrow.png";
 
 const UserDetails = () => {
   const { id } = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.details);
@@ -20,6 +22,10 @@ const UserDetails = () => {
   // Fetch The Driver Details
   useEffect(() => {
     dispatch(fetchDetails(id));
+    if (location.pathname !== "/") {
+      dispatch(removeStatus());
+      dispatch(removeText());
+    }
   }, []);
 
   // Date Formatting Handler

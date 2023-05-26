@@ -20,6 +20,11 @@ const fetchDrivers = createAsyncThunk("drivers/fetchDrivers", async () => {
 const driverSlice = createSlice({
   name: "drivers",
   initialState,
+  reducers: {
+    setFilteredDrivers: (state, action) => {
+      state.drivers = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchDrivers.pending, (state) => {
       state.loading = true;
@@ -27,7 +32,7 @@ const driverSlice = createSlice({
     builder.addCase(fetchDrivers.fulfilled, (state, action) => {
       state.loading = false;
       state.drivers = action.payload.data.drivers.reverse();
-      state.count = action.payload.data.count;
+      state.count = action.payload.data.drivers.length;
     });
     builder.addCase(fetchDrivers.rejected, (state, action) => {
       state.loading = false;
@@ -36,4 +41,6 @@ const driverSlice = createSlice({
   },
 });
 
-export { driverSlice, fetchDrivers };
+const { setFilteredDrivers } = driverSlice.actions;
+
+export { driverSlice, fetchDrivers, setFilteredDrivers };
