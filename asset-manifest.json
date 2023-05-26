@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Zajel/static/css/main.cb19f596.css",
-    "main.js": "/Zajel/static/js/main.61178ca1.js",
+    "main.css": "/Zajel/static/css/main.412c7199.css",
+    "main.js": "/Zajel/static/js/main.04579b8b.js",
     "static/js/787.e70bc985.chunk.js": "/Zajel/static/js/787.e70bc985.chunk.js",
     "static/media/not-found.gif": "/Zajel/static/media/not-found.83eb5633bace7390ff79.gif",
     "static/media/background.png": "/Zajel/static/media/background.7daa11fd8f03df4d0058.png",
@@ -9,12 +9,12 @@
     "static/media/OpenSans-Regular.ttf": "/Zajel/static/media/OpenSans-Regular.37c522d97be8b2c0ab47.ttf",
     "static/media/Tajawal-Regular.ttf": "/Zajel/static/media/Tajawal-Regular.56726bb0358fd1425999.ttf",
     "index.html": "/Zajel/index.html",
-    "main.cb19f596.css.map": "/Zajel/static/css/main.cb19f596.css.map",
-    "main.61178ca1.js.map": "/Zajel/static/js/main.61178ca1.js.map",
+    "main.412c7199.css.map": "/Zajel/static/css/main.412c7199.css.map",
+    "main.04579b8b.js.map": "/Zajel/static/js/main.04579b8b.js.map",
     "787.e70bc985.chunk.js.map": "/Zajel/static/js/787.e70bc985.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cb19f596.css",
-    "static/js/main.61178ca1.js"
+    "static/css/main.412c7199.css",
+    "static/js/main.04579b8b.js"
   ]
 }
